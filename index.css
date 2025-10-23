@@ -1,78 +1,92 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
+
 body {
   height: 100vh;
   background-color: rgb(77, 77, 204);
   display: flex;
+  justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
+
 .contenedor {
-  width: 920px;
-  height: 280px;
-  margin: 0;
+  width: 90vw;
+  max-width: 920px;
+  height: 45vh;
   position: relative;
   background: linear-gradient(#87d6c7, #ffe2d1);
   overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
+
 .dino {
-  width: 84px;
-  height: 84px;
+  width: 10vw;
+  max-width: 84px;
+  height: 10vw;
+  max-height: 84px;
   position: absolute;
-  bottom: 22px;
-  left: 42px;
+  bottom: 5%;
+  left: 5%;
   z-index: 2;
-  background: url("./img/dino.png") repeat-x 0px 0px;
+  background: url("./img/dino.png") repeat-x 0 0;
   background-size: 336px 84px;
-  background-position-x: 0px;
 }
+
 .dino-corriendo {
   animation: animarDino 0.25s steps(2) infinite;
 }
+
 .dino-estrellado {
   background-position-x: -252px;
 }
 
 .suelo {
   width: 200%;
-  height: 42px;
+  height: 15%;
   position: absolute;
   bottom: 0;
   left: 0;
-  background: url("./img/suelo.png") repeat-x 0px 0px;
-  background-size: 50% 42px;
+  background: url("./img/suelo.png") repeat-x;
+  background-size: 50% 100%;
 }
+
 .score {
   width: 100px;
   height: 30px;
   position: absolute;
-  top: 5px;
+  top: 10px;
   right: 15px;
   z-index: 10;
   color: #d48872;
-  font-family: Verdana;
-  font-size: 30px;
+  font-family: Verdana, sans-serif;
+  font-size: 1.5rem;
   font-weight: bold;
   text-align: right;
 }
 
 .cactus {
-  width: 46px;
-  height: 96px;
+  width: 6vw;
+  max-width: 46px;
+  height: 12vh;
   position: absolute;
-  bottom: 16px;
-  left: 600px;
-  z-index: 1;
+  bottom: 10%;
   background: url("./img/cactus1.png") no-repeat;
+  background-size: contain;
+  z-index: 1;
 }
 
-/* NUEVO: nubes de fondo */
+/* 🌥️ Nubes */
 .nube {
-  width: 92px;
-  height: 26px;
+  width: 12vw;
+  max-width: 92px;
+  height: 4vh;
   position: absolute;
-  top: 40px;
+  top: 10%;
   background: url("./img/nube.png") no-repeat;
   background-size: contain;
   opacity: 0.8;
@@ -85,9 +99,10 @@ body {
   width: 100%;
   text-align: center;
   color: #7e928b;
-  font-size: 30px;
-  font-family: Verdana;
+  font-size: 2rem;
+  font-family: Verdana, sans-serif;
   font-weight: 700;
+  top: 40%;
 }
 
 @keyframes animarDino {
@@ -96,5 +111,35 @@ body {
   }
   to {
     background-position-x: -252px;
+  }
+}
+
+/* 📱 Responsivo */
+@media (max-width: 768px) {
+  .score {
+    font-size: 1.2rem;
+  }
+
+  .game-over {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor {
+    height: 40vh;
+  }
+
+  .dino {
+    width: 14vw;
+    height: 14vw;
+  }
+
+  .score {
+    font-size: 1rem;
+  }
+
+  .game-over {
+    font-size: 1.4rem;
   }
 }
